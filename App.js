@@ -4,22 +4,25 @@ import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import MapScreen from './src/Components/MapScreen';
 import Dashboard from './src/Components/Dashboard';
 
+
 const Stack = createNativeStackNavigator ();
 
 function App() {
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Map"
         screenOptions={{
-          headerTitleAlign: 'center',
-          headerStyle: {
-            backgroundColor: '#0080ff'
-          },
+        headerTitleAlign: 'center',
+        headerStyle: {
+        backgroundColor: '#0080ff'
+       },
           headerTintColor: '#ffffff',
           headerTitleStyle: {
-            fontSize: 25,
-            fontWeight: 'bold'
+          fontSize: 25,
+          fontWeight: 'bold'
           }
         }}
       >

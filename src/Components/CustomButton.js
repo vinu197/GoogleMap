@@ -5,6 +5,7 @@ import {
     StyleSheet,
 } from 'react-native';
 import {FONTS,COLORS} from '../Constants/theme'
+
 const CustomButton = (props) => {
     return (
         <Pressable
