@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet,
 } from 'react-native';
-
+import {FONTS,COLORS} from '../Constants/theme'
 const CustomButton = (props) => {
     return (
         <Pressable
@@ -15,19 +15,19 @@ const CustomButton = (props) => {
                 { backgroundColor: pressed ? '#dddddd' : props.color },
                 styles.button,
                 { ...props.style }
-            ]}
-        >
-            <Text style={styles.text}>
-                {props.title}
-            </Text>
+            ]} >
+
+    <Text style={styles.text}>
+        {props.title}
+        </Text>
         </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
     text: {
-        color: '#ffffff',
-        fontSize: 20,
+        color: COLORS.white,
+        ...FONTS.appFontSemiBold,
         margin: 10,
         textAlign: 'center',
     },
