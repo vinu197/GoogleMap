@@ -103,10 +103,13 @@ export default function MapScreen({ navigation }) {
             >
                 <Marker coordinate={position} />
             </MapView>
-            <Button
+
+           <View style ={styles.buttonStyle}> 
+                <Button
                 title='Dashboard'
                 color={COLORS.blue}
                 onPress={setData} />
+            </View>
 
             <Text style={styles.text}>Current latitude: {position.latitude}</Text>
             <Text style={styles.text}>Current longitude: {position.longitude}</Text>
@@ -125,4 +128,8 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
         height:"85%"
     },
+    buttonStyle:{
+        marginBottom:10,
+        padding:10
+    }
 });
