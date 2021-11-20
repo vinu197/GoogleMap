@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, PermissionsAndroid, } from "react-native";
+import { StyleSheet, Text, View, PermissionsAndroid, Button, } from "react-native";
 import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
 import Geolocation from '@react-native-community/geolocation';
-import CustomButton from './CustomButton';
 import SQLite from 'react-native-sqlite-storage';
+import {COLORS,FONTS} from '../Constants/theme';
 
 const db = SQLite.openDatabase(
     {
@@ -23,6 +23,7 @@ export default function MapScreen({ navigation }) {
         latitudeDelta: 0.001,
         longitudeDelta: 0.001,
     });
+    const [count,setCount]=useState(0);
 
     useEffect(() => {
         createTable();
@@ -38,9 +39,7 @@ export default function MapScreen({ navigation }) {
         }).catch((err) => {
             console.log(err);
         });
-        if(!((position.latitude===10)&&(position.longitude===10))){
-            getLocation();
-        }
+       
       
     }, []);
 
@@ -55,10 +54,15 @@ export default function MapScreen({ navigation }) {
     }
 
     const setData = () => {
-        // navigation.navigate('Home');
-        //
-        //getLocation();
-        setInterval(() => getLocation(), 1800000)
+        setCount(count+1);
+        if(count===1){
+            getLocation();
+            setInterval(() => getLocation(), 1800000)
+            navigation.navigate('Home');
+        }else{
+            navigation.navigate('Home');
+        }
+        
         navigation.navigate('Home');
     }
     const getLocation = async () => {
@@ -81,7 +85,7 @@ export default function MapScreen({ navigation }) {
                     [position.latitude, position.longitude]
                 );
             })
-            //  navigation.navigate('Home');
+          
 
         } catch (error) {
             console.log(error);
@@ -99,10 +103,10 @@ export default function MapScreen({ navigation }) {
             >
                 <Marker coordinate={position} />
             </MapView>
-            <CustomButton
+            <Button
                 title='Dashboard'
-                color='#0080ff'
-                onPressFunction={setData} />
+                color={COLORS.blue}
+                onPress={setData} />
 
             <Text style={styles.text}>Current latitude: {position.latitude}</Text>
             <Text style={styles.text}>Current longitude: {position.longitude}</Text>
@@ -119,5 +123,6 @@ const styles = StyleSheet.create({
     },
     map: {
         ...StyleSheet.absoluteFillObject,
+        height:"85%"
     },
 });

@@ -16,6 +16,6 @@ export const FONTS = {
     appFontMedium: { fontFamily: 'Poppins-Medium.ttf', fontSize: 14 },
     appFontRegularsmall: { fontFamily: 'Poppins-Regular.ttf', fontSize: 12 },
     appFontRegular: { fontFamily: 'customFont.ttf', fontSize: 16 },
-    appIconFont: { fontFamily: 'icomoon.ttf', fontSize: 14 },
+    appIconFont: { fontFamily: 'icomoon.ttf', fontSize: 25 },
 }
 export const GLOBALSTYLES = StyleSheet.create({})

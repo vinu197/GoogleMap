@@ -3,7 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator  } from '@react-navigation/native-stack';
 import MapScreen from './src/Components/MapScreen';
 import Dashboard from './src/Components/Dashboard';
-
+import { ImagePickerIOS } from 'react-native';
+import {COLORS,FONTS} from './src/Constants/theme'
 
 const Stack = createNativeStackNavigator ();
 
@@ -17,11 +18,11 @@ function App() {
         screenOptions={{
         headerTitleAlign: 'center',
         headerStyle: {
-        backgroundColor: '#0080ff'
+        backgroundColor: COLORS.blue
        },
-          headerTintColor: '#ffffff',
+          headerTintColor: COLORS.black,
           headerTitleStyle: {
-          fontSize: 25,
+          ...FONTS.appIconFont,
           fontWeight: 'bold'
           }
         }}

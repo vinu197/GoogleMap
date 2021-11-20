@@ -39,6 +39,7 @@ const Dashboard = ({ navigation }) => {
 
         });
     }, []);
+    
     const listViewItemSeparator = () => {
         return (
             <View
