@@ -57,7 +57,7 @@ export default function MapScreen({ navigation }) {
         setCount(count+1);
         if(count===1){
             getLocation();
-            setInterval(() => getLocation(), 1800000)
+            setInterval(() => getLocation(),1800000)
             navigation.navigate('Home');
         }else{
             navigation.navigate('Home');
